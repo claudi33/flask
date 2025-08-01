@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block title %}Weather{% endblock %}
+
+{% block body %}
+
+<a href="/">Home</a>
+<a href="/users">Users</a>
+
+<form method="post">
+    <label for="city">What city do you need?</label>
+    <input type="text" id="city" name="city">
+    <button type="submit">Enter</button>
+</form>
+
+{% if res1%}
+
+<div class="weather">
+        <li>City: {{ city|capitalize }}</li>
+        <li>Temperature: {{ res1['current']['temp_c'] }} C</li>
+        <li>
+            <img src="{{ url_for('static', filename='img/Снимок экрана_27-7-2025_19230_www.bing.com.jpeg') }}">
+         </li>
+        <li>More: {{ res1['current']['condition']['text'] }}</li>
+</div>
+
+{% endif %}
+{% endblock %}

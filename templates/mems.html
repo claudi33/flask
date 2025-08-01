@@ -1,0 +1,26 @@
+{% extends  "index.html" %}
+
+{% block title %}Mems for you pupsiki :){% endblock %}
+
+{% block body %}
+<h1>Mems for you pupsiki :)</h1>
+<a href="/">Home</a>
+<a href="/users">Users</a>
+<a href="/weather">Weather</a>
+
+<form method="post">
+    <label for="count">How much jokes?:</label>
+    <input type="number" id="count" name="count" min="0" value="0" onfocus="this.select()">
+    <button type="submit">Enter</button>
+</form>
+
+{% if jokes %}
+
+<ul>
+    {% for joke in jokes %}
+        <li>{{ joke|capitalize }}</li>
+    {% endfor %}
+</ul>
+
+{% endif %}
+{% endblock %}
